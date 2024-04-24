@@ -54,16 +54,29 @@
             margin-top: 0;
         }
         .contact-info {
-            text-align: left; 
+            text-align: center;
             margin-top: 30px;
         }
+        
         .contact-info-item {
-            margin-bottom: 20px; 
+            display: inline-block;
+            margin: 0 10px;
+            vertical-align: middle;
         }
+        
         .contact-info-item i {
-            margin-right: 10px;
+            margin-right: 5px;
         }
+        
         .contact-info-item span {
+            vertical-align: middle;
+        }
+        
+        .separator {
+            border-right: 1px solid #000;
+            margin: 0 5px;
+            height: 15px;
+            display: inline-block;
             vertical-align: middle;
         }
         nav {
@@ -105,15 +118,21 @@
         <h2>Contactez-moi!</h2>
         <div class="contact-info">
             <div class="contact-info-item">
-                <i class="fa fa-envelope"></i>
+                <i class="fas fa-envelope"></i>
                 <span>ines.metiba@epita.fr</span>
             </div>
             <div class="contact-info-item">
-                <i class="fa fa-phone"></i>
+                <span class="separator">|</span>
+            </div>
+            <div class="contact-info-item">
+                <i class="fas fa-phone"></i>
                 <span>+33651681858</span>
             </div>
             <div class="contact-info-item">
-                <i class="fa fa-map-marker"></i>
+                <span class="separator">|</span>
+            </div>
+            <div class="contact-info-item">
+                <i class="fas fa-map-marker"></i>
                 <span>Paris</span><br>
                 <span>Bayonne</span><br>
                 <span>Rennes</span>
