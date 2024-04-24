@@ -66,12 +66,12 @@
         
         .contact-info-item i {
             margin-right: 5px;
-            color: #fff;
+            color: #8253da;
         }
         
         .contact-info-item span {
             vertical-align: middle;
-            color: #8253da;
+            color: #008514;
         }
         
         .separator {
@@ -80,6 +80,29 @@
             height: 30px;
             display: inline-block;
             vertical-align: middle;
+        }
+        .cv {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .cv h2 {
+            color: #8253da;
+            font-size: 30px;
+        }
+        
+        .cv .download-button {
+            display: inline-block;
+            background-color: #008514;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .cv .download-button:hover {
+            background-color: #00590e;
         }
         nav {
             background-color: #008514; 
@@ -104,6 +127,7 @@
 <body>
     <nav>
         <a href="#about">Présentation</a>
+        <a href="#cursus">Mon cursus</a>
         <a href="#contact">Contactez-moi!</a>
     </nav>
     <div class="container" id="about">
@@ -115,6 +139,10 @@
             de septembre 2024 à janvier 2025.</p>
         </div>
         <img src="pictures/profile.jpeg" alt="Moi" class="profile-img">
+    </div>
+    <div class="cv" id="cursus">
+        <h2>Mon cursus:</h2>
+        <a href="CV Inès Metiba.pdf" class="download-button">Pour le télécharger, cliquez ici!</a>
     </div>
     <div class="containerv" id="contact">
         <h2>Contactez-moi!</h2>
