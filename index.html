@@ -108,17 +108,22 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            margin-top: 50px; /* Ajustez selon vos besoins */
+            margin-top: 50px;
         }
 
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
         .carousel img {
-            width: 100%;
+            width: 80%;
             height: auto;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
         .navigation {
@@ -237,25 +242,11 @@
     <script>
         $(document).ready(function() {
             $('.next').click(function() {
-                var $currentSlide = $('.carousel img:visible');
-                var $nextSlide = $currentSlide.next('img');
-                if ($nextSlide.length) {
-                    $('.carousel').animate({marginLeft: '-=100%'}, 500);
-                } else {
-                    $('.carousel').animate({marginLeft: '0'}, 500);
-                }
+                $('.carousel').animate({scrollLeft: '+=300'}, 500);
             });
 
             $('.prev').click(function() {
-                var $currentSlide = $('.carousel img:visible');
-                var $prevSlide = $currentSlide.prev('img');
-                if ($prevSlide.length) {
-                    $('.carousel').animate({marginLeft: '+=100%'}, 500);
-                } else {
-                    var $lastSlide = $('.carousel img:last');
-                    var totalWidth = $lastSlide.position().left + $lastSlide.outerWidth(true);
-                    $('.carousel').animate({marginLeft: '-=' + totalWidth}, 500);
-                }
+                $('.carousel').animate({scrollLeft: '-=300'}, 500);
             });
         });
     </script>
