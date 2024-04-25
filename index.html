@@ -205,6 +205,7 @@
             <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
             <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
             <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
+
         </div>
         <div class="navigation">
             <button class="prev-arrow">&#10094;</button>
@@ -245,7 +246,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var scrollDistance = 200; 
+            var scrollDistance = 300; 
 
             $('.carousel').on('wheel', function(e) {
                 e.preventDefault();
@@ -259,12 +260,16 @@
             });
 
             $('.next-arrow').click(function() {
-                $('.carousel').animate({scrollLeft: '+=' + scrollDistance}, 500);
+                var carousel = $('.carousel');
+                var nextScrollLeft = carousel.scrollLeft() + carousel.width();
+                carousel.animate({scrollLeft: nextScrollLeft}, 500);
                 toggleArrows();
             });
 
             $('.prev-arrow').click(function() {
-                $('.carousel').animate({scrollLeft: '-=' + scrollDistance}, 500);
+                var carousel = $('.carousel');
+                var prevScrollLeft = carousel.scrollLeft() - carousel.width();
+                carousel.animate({scrollLeft: prevScrollLeft}, 500);
                 toggleArrows();
             });
 
