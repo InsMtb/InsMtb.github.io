@@ -241,14 +241,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+            var scrollDistance = 600;
+        
             $('.next').click(function() {
-                $('.carousel').animate({marginLeft: '-=50%'}, 500);
-                toggleArrows(); 
+                $('.carousel').animate({marginLeft: '-=' + scrollDistance + 'px'}, 500);
+                toggleArrows();
             });
         
             $('.prev').click(function() {
-                $('.carousel').animate({marginLeft: '+=50%'}, 500);
-                toggleArrows(); 
+                $('.carousel').animate({marginLeft: '+=' + scrollDistance + 'px'}, 500);
+                toggleArrows();
             });
         
             function toggleArrows() {
