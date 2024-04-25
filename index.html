@@ -120,7 +120,7 @@
         }
 
         .carousel img {
-            width: 80%;
+            width: 30%;
             height: auto;
             margin-right: 20px;
             flex-shrink: 0;
@@ -241,12 +241,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+            var carouselWidth = $('.carousel')[0].scrollWidth;
+            var slideWidth = $('.carousel img').width() + 20;
+            var scrollAmount = 300;
+
             $('.next').click(function() {
-                $('.carousel').animate({scrollLeft: '+=300'}, 500);
+                $('.carousel').animate({scrollLeft: '+=' + scrollAmount}, 500, function() {
+                    if ($('.carousel').scrollLeft() + $('.carousel').width() >= carouselWidth) {
+                        $('.carousel').scrollLeft(0);
+                    }
+                });
             });
 
             $('.prev').click(function() {
-                $('.carousel').animate({scrollLeft: '-=300'}, 500);
+                $('.carousel').animate({scrollLeft: '-=' + scrollAmount}, 500, function() {
+                    if ($('.carousel').scrollLeft() === 0) {
+                        $('.carousel').scrollLeft(carouselWidth - $('.carousel').width());
+                    }
+                });
             });
         });
     </script>
