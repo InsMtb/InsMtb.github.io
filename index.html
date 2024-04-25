@@ -134,18 +134,27 @@
             display: flex;
             justify-content: space-between;
         }
-
-        .navigation button {
+        
+        .prev-arrow {
             background: #008514;
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
             font-size: 18px;
+            position: absolute;
+            left: 0;
         }
-
-        .navigation button:hover {
-            background: #8253da;
+        
+        .next-arrow {
+            background: #008514;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            position: absolute;
+            right: 0;
         }
         nav {
             background-color: #008514; 
@@ -203,8 +212,8 @@
 
         </div>
         <div class="navigation">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
+            <button class="prev prev-arrow">&#10094;</button>
+            <button class="next next-arrow">&#10095;</button>
         </div>
     </div>
     <div class="cv" id="cursus">
@@ -241,27 +250,37 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var scrollDistance = 200;
-            $('.carousel').scroll(function() {
+            var scrollDistance = 200; 
+
+            $('.carousel').on('wheel', function(e) {
+                e.preventDefault();
+                var delta = e.originalEvent.deltaY;
+                if (delta > 0) {
+                    $('.carousel').animate({scrollLeft: '+=' + scrollDistance}, 500);
+                } else {
+                    $('.carousel').animate({scrollLeft: '-=' + scrollDistance}, 500);
+                }
                 toggleArrows();
             });
+        
             $('.next').click(function() {
-                $('.carousel').animate({marginLeft: '-=' + scrollDistance + 'px'}, 500);
+                $('.carousel').animate({scrollLeft: '+=' + scrollDistance}, 500);
                 toggleArrows();
             });
+        
             $('.prev').click(function() {
-                $('.carousel').animate({marginLeft: '+=' + scrollDistance + 'px'}, 500);
+                $('.carousel').animate({scrollLeft: '-=' + scrollDistance}, 500);
                 toggleArrows();
             });
-    
+        
             function toggleArrows() {
                 var carousel = $('.carousel');
-                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();           
+                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();    
                 if (carousel.scrollLeft() <= 0) {
-                    $('.prev').hide();
+                    $('.prev').hide(); 
                 } else {
                     $('.prev').show();
-                }           
+                }
                 if (carousel.scrollLeft() >= maxScrollLeft) {
                     $('.next').hide();
                 } else {
@@ -271,6 +290,7 @@
         
             toggleArrows();
         });
+        
     </script>
 </body>
 </html>
