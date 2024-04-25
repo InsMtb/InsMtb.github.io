@@ -126,27 +126,6 @@
             width: 300px; 
         }
 
-        .navigation {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .navigation button {
-            background: #008514;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .navigation button:hover {
-            background: #8253da;
-        }
         nav {
             background-color: #008514; 
             padding: 10px 0; 
@@ -200,11 +179,6 @@
             <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
             <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
             <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
-
-        </div>
-        <div class="navigation">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
         </div>
     </div>
     <div class="cv" id="cursus">
@@ -237,40 +211,5 @@
             </div>
         </div>
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var scrollDistance = 200;
-            $('.carousel').scroll(function() {
-                toggleArrows();
-            });
-            $('.next').click(function() {
-                $('.carousel').animate({marginLeft: '-=' + scrollDistance + 'px'}, 500);
-                toggleArrows();
-            });
-            $('.prev').click(function() {
-                $('.carousel').animate({marginLeft: '+=' + scrollDistance + 'px'}, 500);
-                toggleArrows();
-            });
-    
-            function toggleArrows() {
-                var carousel = $('.carousel');
-                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();           
-                if (carousel.scrollLeft() <= 0) {
-                    $('.prev').hide();
-                } else {
-                    $('.prev').show();
-                }           
-                if (carousel.scrollLeft() >= maxScrollLeft) {
-                    $('.next').hide();
-                } else {
-                    $('.next').show();
-                }
-            }
-        
-            toggleArrows();
-        });
-    </script>
 </body>
 </html>
