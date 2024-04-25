@@ -120,10 +120,36 @@
         }
 
         .carousel img {
-            width: 30%;
-            height: auto;
+            position: relative;
             margin-right: 20px;
-            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .carousel img:hover {
+            filter: brightness(50%);
+        }
+
+        .carousel .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 0, 128, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel img:hover .overlay {
+            opacity: 1;
+        }
+
+        .carousel .overlay p {
+            font-size: 20px;
         }
 
         .navigation {
@@ -184,7 +210,7 @@
         </div>
         <img src="pictures/profile.jpeg" alt="Moi" class="profile-img">
     </div>
-    <div class="catalogue" id="perisco"=>
+    <div class="catalogue" id="perisco">
         <div class="carousel">
             <img src="pictures/affiche1.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
             <img src="pictures/affiche2.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
@@ -210,7 +236,7 @@
     <div class="cv" id="cursus">
         <h2>Mon cursus:</h2>
         <iframe src="pictures/CV.pdf" width="100%" height="500px"></iframe>
-        <a href="pictures/CV.pdf" class="download-button download="CV%20Inès%20Metiba.pdf"">Pour le télécharger, cliquez ici!</a>
+        <a href="pictures/CV.pdf" class="download-button" download="CV%20Inès%20Metiba.pdf">Pour le télécharger, cliquez ici!</a>
     </div>
     <div class="containerv" id="contact">
         <h2>Contactez-moi!</h2>
@@ -241,13 +267,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var carouselWidth = $('.carousel')[0].scrollWidth;
-            var slideWidth = $('.carousel img').width() + 20;
+            var slideWidth = $('.carousel img').outerWidth(true);
             var scrollAmount = 300;
 
             $('.next').click(function() {
                 $('.carousel').animate({scrollLeft: '+=' + scrollAmount}, 500, function() {
-                    if ($('.carousel').scrollLeft() + $('.carousel').width() >= carouselWidth) {
+                    if ($('.carousel').scrollLeft() + $('.carousel').width() >= $('.carousel')[0].scrollWidth) {
                         $('.carousel').scrollLeft(0);
                     }
                 });
@@ -256,7 +281,7 @@
             $('.prev').click(function() {
                 $('.carousel').animate({scrollLeft: '-=' + scrollAmount}, 500, function() {
                     if ($('.carousel').scrollLeft() === 0) {
-                        $('.carousel').scrollLeft(carouselWidth - $('.carousel').width());
+                        $('.carousel').scrollLeft($('.carousel')[0].scrollWidth - $('.carousel').width());
                     }
                 });
             });
