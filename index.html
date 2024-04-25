@@ -277,14 +277,14 @@
                 var carousel = $('.carousel');
                 var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();    
                 if (carousel.scrollLeft() <= 0) {
-                    $('.prev').hide(); 
+                    $('.prev-arrow').hide(); 
                 } else {
-                    $('.prev').show();
+                    $('.prev-arrow').show();
                 }
                 if (carousel.scrollLeft() >= maxScrollLeft) {
-                    $('.next').hide();
+                    $('.next-arrow').hide();
                 } else {
-                    $('.next').show();
+                    $('.next-arrow').show();
                 }
             }
         
