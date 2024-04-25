@@ -189,6 +189,13 @@
             <img src="pictures/affiche12.png" alt="Proposition fête du campus d'EPITA Rennes">
             <img src="pictures/affiche7.png" alt="Fête du campus d'EPITA Rennes">
             <img src="pictures/affiche6.pdf" alt="Sensibilisation au vote pour EPITA Rennes">
+            <img src="pictures/affiche8.png" alt="Proposition LAN Brawlhalla du BDE EPITA Rennes">
+            <img src="pictures/affiche9.png" alt="Proposition LAN Brawlhalla du BDE EPITA Rennes">
+            <img src="pictures/affiche10.png" alt="LAN Brawlhalla du BDE EPITA Rennes">
+            <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
+            <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
+            <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
+
         </div>
         <div class="navigation">
             <button class="prev">&#10094;</button>
@@ -230,11 +237,25 @@
     <script>
         $(document).ready(function() {
             $('.next').click(function() {
-                $('.carousel').animate({marginLeft: '-=100%'}, 500);
+                var $currentSlide = $('.carousel img:visible');
+                var $nextSlide = $currentSlide.next('img');
+                if ($nextSlide.length) {
+                    $('.carousel').animate({marginLeft: '-=100%'}, 500);
+                } else {
+                    $('.carousel').animate({marginLeft: '0'}, 500);
+                }
             });
 
             $('.prev').click(function() {
-                $('.carousel').animate({marginLeft: '+=100%'}, 500);
+                var $currentSlide = $('.carousel img:visible');
+                var $prevSlide = $currentSlide.prev('img');
+                if ($prevSlide.length) {
+                    $('.carousel').animate({marginLeft: '+=100%'}, 500);
+                } else {
+                    var $lastSlide = $('.carousel img:last');
+                    var totalWidth = $lastSlide.position().left + $lastSlide.outerWidth(true);
+                    $('.carousel').animate({marginLeft: '-=' + totalWidth}, 500);
+                }
             });
         });
     </script>
