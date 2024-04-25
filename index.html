@@ -123,32 +123,30 @@
             position: relative;
             margin-right: 20px;
             scroll-snap-align: start;
+            width: 100px; 
         }
 
         .carousel img:hover {
-            filter: brightness(50%);
+            position: relative; 
         }
-
-        .carousel .overlay {
+    
+        .carousel img:hover::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(128, 0, 128, 0.5);
+            background-color: rgba(111, 0, 255, 0.541);
+        }
+    
+        .carousel img:hover::before {
+            content: attr(alt);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .carousel img:hover .overlay {
-            opacity: 1;
-        }
-
-        .carousel .overlay p {
             font-size: 20px;
         }
 
@@ -267,23 +265,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var slideWidth = $('.carousel img').outerWidth(true);
-            var scrollAmount = 300;
-
             $('.next').click(function() {
-                $('.carousel').animate({scrollLeft: '+=' + scrollAmount}, 500, function() {
-                    if ($('.carousel').scrollLeft() + $('.carousel').width() >= $('.carousel')[0].scrollWidth) {
-                        $('.carousel').scrollLeft(0);
-                    }
-                });
+                $('.carousel').animate({marginLeft: '-=100%'}, 500);
             });
 
             $('.prev').click(function() {
-                $('.carousel').animate({scrollLeft: '-=' + scrollAmount}, 500, function() {
-                    if ($('.carousel').scrollLeft() === 0) {
-                        $('.carousel').scrollLeft($('.carousel')[0].scrollWidth - $('.carousel').width());
-                    }
-                });
+                $('.carousel').animate({marginLeft: '+=100%'}, 500);
             });
         });
     </script>
