@@ -113,12 +113,14 @@
 
         .carousel {
             display: flex;
+            transition: transform 0.5s ease;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
         .carousel img {
+            position: relative;
             margin-right: 20px;
             scroll-snap-align: start;
             width: 300px; 
@@ -205,7 +207,6 @@
             <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
             <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
             <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
-
         </div>
         <div class="navigation">
             <button class="prev-arrow">&#10094;</button>
@@ -261,15 +262,15 @@
 
             $('.next-arrow').click(function() {
                 var carousel = $('.carousel');
-                var nextScrollLeft = carousel.scrollLeft() + carousel.width();
-                carousel.animate({scrollLeft: nextScrollLeft}, 500);
+                var nextScrollLeft = carousel.scrollLeft() + carousel.width() * 0.8; // Ajustez la vitesse de défilement ici
+                carousel.animate({scrollLeft: nextScrollLeft}, 800); // Ajustez la vitesse d'animation ici
                 toggleArrows();
             });
 
             $('.prev-arrow').click(function() {
                 var carousel = $('.carousel');
-                var prevScrollLeft = carousel.scrollLeft() - carousel.width();
-                carousel.animate({scrollLeft: prevScrollLeft}, 500);
+                var prevScrollLeft = carousel.scrollLeft() - carousel.width() * 0.8; // Ajustez la vitesse de défilement ici
+                carousel.animate({scrollLeft: prevScrollLeft}, 800); // Ajustez la vitesse d'animation ici
                 toggleArrows();
             });
 
