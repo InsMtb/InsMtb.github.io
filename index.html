@@ -113,14 +113,12 @@
 
         .carousel {
             display: flex;
-            transition: transform 0.5s ease;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
         .carousel img {
-            position: relative;
             margin-right: 20px;
             scroll-snap-align: start;
             width: 300px; 
@@ -135,17 +133,7 @@
             justify-content: space-between;
         }
         
-        .prev-arrow {
-            background: #008514;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            position: absolute;
-            left: 0;
-        }
-        
+        .prev-arrow,
         .next-arrow {
             background: #008514;
             color: white;
@@ -154,6 +142,13 @@
             cursor: pointer;
             font-size: 18px;
             position: absolute;
+        }
+
+        .prev-arrow {
+            left: 0;
+        }
+
+        .next-arrow {
             right: 0;
         }
         nav {
@@ -209,11 +204,10 @@
             <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
             <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
             <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
-
         </div>
         <div class="navigation">
-            <button class="prev prev-arrow">&#10094;</button>
-            <button class="next next-arrow">&#10095;</button>
+            <button class="prev-arrow">&#10094;</button>
+            <button class="next-arrow">&#10095;</button>
         </div>
     </div>
     <div class="cv" id="cursus">
@@ -251,28 +245,39 @@
     <script>
         $(document).ready(function() {
             var scrollDistance = 200; 
+            var isMouseDown = false;
+            var startX = 0;
 
-            $('.carousel').on('wheel', function(e) {
-                e.preventDefault();
-                var delta = e.originalEvent.deltaY;
-                if (delta > 0) {
-                    $('.carousel').animate({scrollLeft: '+=' + scrollDistance}, 500);
+            $('.carousel').on('mousedown touchstart', function(e) {
+                isMouseDown = true;
+                startX = e.pageX || e.originalEvent.touches[0].pageX;
+            }).on('mouseup touchend', function() {
+                isMouseDown = false;
+            }).on('mouseleave', function() {
+                isMouseDown = false;
+            }).on('mousemove touchmove', function(e) {
+                if (!isMouseDown) return;
+                var endX = e.pageX || e.originalEvent.touches[0].pageX;
+                var deltaX = startX - endX;
+                if (deltaX > 0) {
+                    $('.carousel').scrollLeft($('.carousel').scrollLeft() + scrollDistance);
                 } else {
-                    $('.carousel').animate({scrollLeft: '-=' + scrollDistance}, 500);
+                    $('.carousel').scrollLeft($('.carousel').scrollLeft() - scrollDistance);
                 }
+                startX = endX;
                 toggleArrows();
             });
-        
-            $('.next').click(function() {
+
+            $('.next-arrow').click(function() {
                 $('.carousel').animate({scrollLeft: '+=' + scrollDistance}, 500);
                 toggleArrows();
             });
-        
-            $('.prev').click(function() {
+
+            $('.prev-arrow').click(function() {
                 $('.carousel').animate({scrollLeft: '-=' + scrollDistance}, 500);
                 toggleArrows();
             });
-        
+
             function toggleArrows() {
                 var carousel = $('.carousel');
                 var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();    
@@ -287,10 +292,9 @@
                     $('.next-arrow').show();
                 }
             }
-        
+
             toggleArrows();
         });
-        
     </script>
 </body>
 </html>
