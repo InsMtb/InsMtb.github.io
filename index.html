@@ -142,6 +142,7 @@
             cursor: pointer;
             font-size: 18px;
             position: absolute;
+            z-index: 1;
         }
 
         .prev-arrow {
@@ -245,26 +246,15 @@
     <script>
         $(document).ready(function() {
             var scrollDistance = 200; 
-            var isMouseDown = false;
-            var startX = 0;
 
-            $('.carousel').on('mousedown touchstart', function(e) {
-                isMouseDown = true;
-                startX = e.pageX || e.originalEvent.touches[0].pageX;
-            }).on('mouseup touchend', function() {
-                isMouseDown = false;
-            }).on('mouseleave', function() {
-                isMouseDown = false;
-            }).on('mousemove touchmove', function(e) {
-                if (!isMouseDown) return;
-                var endX = e.pageX || e.originalEvent.touches[0].pageX;
-                var deltaX = startX - endX;
-                if (deltaX > 0) {
+            $('.carousel').on('wheel', function(e) {
+                e.preventDefault();
+                var delta = e.originalEvent.deltaY;
+                if (delta > 0) {
                     $('.carousel').scrollLeft($('.carousel').scrollLeft() + scrollDistance);
                 } else {
                     $('.carousel').scrollLeft($('.carousel').scrollLeft() - scrollDistance);
                 }
-                startX = endX;
                 toggleArrows();
             });
 
