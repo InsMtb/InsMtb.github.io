@@ -104,6 +104,44 @@
         .cv .download-button:hover {
             background-color: #00590e;
         }
+        .catalogue {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 50px; /* Ajustez selon vos besoins */
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navigation button {
+            background: #008514;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .navigation button:hover {
+            background: #8253da;
+        }
         nav {
             background-color: #008514; 
             padding: 10px 0; 
@@ -127,6 +165,7 @@
 <body>
     <nav>
         <a href="#about">Présentation</a>
+        <a href="#perisco">Périscolaire</a>
         <a href="#cursus">Mon cursus</a>
         <a href="#contact">Contactez-moi!</a>
     </nav>
@@ -139,6 +178,22 @@
             de septembre 2024 à janvier 2025.</p>
         </div>
         <img src="pictures/profile.jpeg" alt="Moi" class="profile-img">
+    </div>
+    <div class="catalogue" id="perisco"=>
+        <div class="carousel">
+            <img src="pictures/affiche1.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
+            <img src="pictures/affiche2.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
+            <img src="pictures/affiche3.pdf" alt="Tournoi d'échec du BDE d'EPITA Rennes">
+            <img src="pictures/affiche4.png" alt="Proposition fête du campus d'EPITA Rennes">
+            <img src="pictures/affiche5.png" alt="Proposition fête du campus d'EPITA Rennes">
+            <img src="pictures/affiche12.png" alt="Proposition fête du campus d'EPITA Rennes">
+            <img src="pictures/affiche7.png" alt="Fête du campus d'EPITA Rennes">
+            <img src="pictures/affiche6.pdf" alt="Sensibilisation au vote pour EPITA Rennes">
+        </div>
+        <div class="navigation">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
     </div>
     <div class="cv" id="cursus">
         <h2>Mon cursus:</h2>
@@ -171,5 +226,17 @@
         </div>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.next').click(function() {
+                $('.carousel').animate({marginLeft: '-=100%'}, 500);
+            });
+
+            $('.prev').click(function() {
+                $('.carousel').animate({marginLeft: '+=100%'}, 500);
+            });
+        });
+    </script>
 </body>
 </html>
