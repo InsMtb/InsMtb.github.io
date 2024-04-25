@@ -134,32 +134,18 @@
             display: flex;
             justify-content: space-between;
         }
-        
-        .prev-arrow,
-        .next-arrow {
+
+        .navigation button {
             background: #008514;
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
             font-size: 18px;
-            position: absolute;
-            z-index: 1;
-            opacity: 0.5;
-            transition: opacity 0.3s;
         }
 
-        .prev-arrow:hover,
-        .next-arrow:hover {
-            opacity: 1;
-        }
-
-        .prev-arrow {
-            left: 0;
-        }
-
-        .next-arrow {
-            right: 0;
+        .navigation button:hover {
+            background: #8253da;
         }
         nav {
             background-color: #008514; 
@@ -214,10 +200,11 @@
             <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
             <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
             <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
+
         </div>
         <div class="navigation">
-            <button class="prev-arrow">&#10094;</button>
-            <button class="next-arrow">&#10095;</button>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
         </div>
     </div>
     <div class="cv" id="cursus">
@@ -255,45 +242,33 @@
     <script>
         $(document).ready(function() {
             var scrollDistance = 200;
-
-            $('.carousel').on('wheel', function(e) {
-                e.preventDefault();
-                var delta = e.originalEvent.deltaY;
-                if (delta > 0) {
-                    $('.carousel').scrollLeft($('.carousel').scrollLeft() + scrollDistance);
-                } else {
-                    $('.carousel').scrollLeft($('.carousel').scrollLeft() - scrollDistance);
-                }
+            $('.carousel').scroll(function() {
                 toggleArrows();
             });
-
-            $('.next-arrow').click(function() {
-                var carousel = $('.carousel');
-                var nextScrollLeft = carousel.scrollLeft() + carousel.width() * 0.8; // Ajustez la vitesse de défilement ici
-                carousel.animate({scrollLeft: nextScrollLeft}, 500); // Ajustez la vitesse d'animation ici
+            $('.next').click(function() {
+                $('.carousel').animate({marginLeft: '-=' + scrollDistance + 'px'}, 500);
+                toggleArrows();
             });
-
-            $('.prev-arrow').click(function() {
-                var carousel = $('.carousel');
-                var prevScrollLeft = carousel.scrollLeft() - carousel.width() * 0.8; // Ajustez la vitesse de défilement ici
-                carousel.animate({scrollLeft: prevScrollLeft}, 500); // Ajustez la vitesse d'animation ici
+            $('.prev').click(function() {
+                $('.carousel').animate({marginLeft: '+=' + scrollDistance + 'px'}, 500);
+                toggleArrows();
             });
-
+    
             function toggleArrows() {
                 var carousel = $('.carousel');
-                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();    
+                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();           
                 if (carousel.scrollLeft() <= 0) {
-                    $('.prev-arrow').hide(); 
+                    $('.prev').hide();
                 } else {
-                    $('.prev-arrow').show();
-                }
+                    $('.prev').show();
+                }           
                 if (carousel.scrollLeft() >= maxScrollLeft) {
-                    $('.next-arrow').hide();
+                    $('.next').hide();
                 } else {
-                    $('.next-arrow').show();
+                    $('.next').show();
                 }
             }
-
+        
             toggleArrows();
         });
     </script>
