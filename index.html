@@ -241,28 +241,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            var scrollDistance = 600;
-        
+            var scrollDistance = 200;
+            $('.carousel').scroll(function() {
+                toggleArrows();
+            });
             $('.next').click(function() {
                 $('.carousel').animate({marginLeft: '-=' + scrollDistance + 'px'}, 500);
                 toggleArrows();
             });
-        
             $('.prev').click(function() {
                 $('.carousel').animate({marginLeft: '+=' + scrollDistance + 'px'}, 500);
                 toggleArrows();
             });
-        
+    
             function toggleArrows() {
                 var carousel = $('.carousel');
-                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();
-                
+                var maxScrollLeft = carousel.get(0).scrollWidth - carousel.width();           
                 if (carousel.scrollLeft() <= 0) {
                     $('.prev').hide();
                 } else {
                     $('.prev').show();
-                }
-                
+                }           
                 if (carousel.scrollLeft() >= maxScrollLeft) {
                     $('.next').hide();
                 } else {
