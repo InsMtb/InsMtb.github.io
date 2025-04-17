@@ -1,215 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: #c8f1de;
-            margin: 0;
-            padding: 0;
-            font-family: "Gill Sans Extrabold", serif;        
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 50px 20px;
-            display: flex; 
-            align-items: center;
-        }
-        .text {
-            flex: 1; 
-            text-align: left;
-        }
-        h1 {
-            color: #8253da; 
-            font-size: 40px;
-            margin-top: 0;
-        }
-        p {
-            color: #008514;
-            font-size: 20px;
-            line-height: 1.6; 
-        }
-        .profile-img {
-            max-width: 200px; 
-            margin-left: 20px; 
-            border-radius: 50%; 
-        }
-        .containerv {
-            max-width: 800px; 
-            margin: 0 auto;
-            text-align: center;
-            padding: 50px 20px;
-            display: flex; 
-            align-items: center;
-            flex-direction: column; 
-        }
-        h2 {
-            color: #8253da; 
-            font-size: 40px;
-            margin-top: 0;
-        }
-        .contact-info {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .contact-info-item {
-            display: inline-block;
-            margin: 0 10px;
-            vertical-align: middle;
-        }
-        
-        .contact-info-item i {
-            margin-right: 5px;
-            color: #8253da;
-        }
-        
-        .contact-info-item span {
-            vertical-align: middle;
-            color: #008514;
-        }
-        
-        .separator {
-            border-right: 4px solid #fff;
-            margin: 0 20px;
-            height: 30px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .cv {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        
-        .cv h2 {
-            color: #8253da;
-            font-size: 30px;
-        }
-        
-        .cv .download-button {
-            display: inline-block;
-            background-color: #008514;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        
-        .cv .download-button:hover {
-            background-color: #00590e;
-        }
-        .catalogue {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            margin-top: 50px;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .carousel img {
-            position: relative;
-            margin-right: 20px;
-            scroll-snap-align: start;
-            width: 300px; 
-        }
-
-        nav {
-            background-color: #008514; 
-            padding: 10px 0; 
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: #fff; 
-            text-decoration: none; 
-            margin: 0 20px; 
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline; 
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <title>CV Inès Metiba</title>
 </head>
 <body>
+<div class="snowfall"></div>
+<header>
+    <div class="inline">
+        <div id="mode-text" class="mode-text">🌙</div>
+        <label class="switch">
+        <input type="checkbox">
+        <span id="mode-toggle" class="slider round"></span>
+    </label>
+    </div>
+    <div class="wrap">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+
+        <div class="center"></div>
+    </div>
+    <h1>Inès Metiba</h1>
+    <h2>Étudiante en 4ème année à l'EPITA</h2>
+    <p class="description">
+        Étudiante en dernière année à l'EPITA,
+        je recherche un stage de fin d’études de 6 mois à partir de février 2026
+        en développement fullstack.
+    </p>
+    <p class="description">
+        Passionnée par la création d'interfaces intuitives et performantes,
+        j’ai une forte appétence pour le front-end tout en maîtrisant les enjeux du back-end.
+        Curieuse et rigoureuse, je suis motivée à intégrer une équipe dynamique
+        pour concevoir des applications web et mobiles modernes,
+        en mettant l'accent sur l’expérience utilisateur et l’optimisation des performances.
+    </p>
+</header>
     <nav>
-        <a href="#about">Présentation</a>
-        <a href="#perisco">Périscolaire</a>
-        <a href="#cursus">Mon cursus</a>
-        <a href="#contact">Contactez-moi!</a>
-    </nav>
-    <div class="container" id="about">
-        <div class="text">
-            <h1>Inès Metiba</h1>
-            <p>Élève en première année <br>
-            du cycle ingénieur à Epita, <br>
-            en recherche de stage <br>
-            de septembre 2024 à janvier 2025.</p>
+    <ul class="no-bullets">
+        <li><a href="mailto:inesmetiba53@gmail.com">Contacter par mail</a></li>
+        <li><a href="tel:+33651681858">Contacter par téléphone</a></li>
+        <li><a href="https://www.linkedin.com/in/in%C3%A8s-metiba-404a88196/">Linkedin</a></li>
+        <li><a href="https://github.com/Metiwalk">Github</a></li>
+    </ul>
+</nav>
+<section class="xp">
+    <h2>Projets récents</h2>
+    <h3>L'équipe</h3>
+    <p class="description">Cette dernière année à été chargée en projet en lien avec mon orientation future,
+        nous étions pour la majeure partie d'entre eux, en équipe de 4.</p>
+    <p class="description">Cette équipe la voici, dans l'ordre, Sam, Inès, Nicolas et Cléry.</p>
+    <img src="./assets/le%20groupe.jpg" alt="Photo du groupe"/>
+    <section class="xp" id="projectgrid">
+        <div>
+            <h3 class="categoryTitle">PLIC</h3>
+            <h2>Projet libre d'innovation et de communication</h2>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
         </div>
-        <img src="pictures/profile.jpeg" alt="Moi" class="profile-img">
-    </div>
-    <div class="catalogue" id="perisco">
-        <div class="carousel">
-            <img src="pictures/affiche1.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
-            <img src="pictures/affiche2.pdf" alt="Proposition pour le festival Blues In Haut-Anjou.">
-            <img src="pictures/affiche3.pdf" alt="Tournoi d'échec du BDE d'EPITA Rennes">
-            <img src="pictures/affiche4.png" alt="Proposition fête du campus d'EPITA Rennes">
-            <img src="pictures/affiche5.png" alt="Proposition fête du campus d'EPITA Rennes">
-            <img src="pictures/affiche12.png" alt="Proposition fête du campus d'EPITA Rennes">
-            <img src="pictures/affiche7.png" alt="Fête du campus d'EPITA Rennes">
-            <img src="pictures/affiche6.pdf" alt="Sensibilisation au vote pour EPITA Rennes">
-            <img src="pictures/affiche8.png" alt="Proposition LAN Brawlhalla du BDE EPITA Rennes">
-            <img src="pictures/affiche9.png" alt="Proposition LAN Brawlhalla du BDE EPITA Rennes">
-            <img src="pictures/affiche10.png" alt="LAN Brawlhalla du BDE EPITA Rennes">
-            <img src="pictures/affiche11.pdf" alt="Soirée Poker du BDE EPITA Rennes">
-            <img src="pictures/affiche13.pdf" alt="Campagne BDE EPITA Rennes">
-            <img src="pictures/affiche14.pdf" alt="LAN Valorant BDE EPITA Rennes">
+        <div>
+            <h3 class="categoryTitle">PFEE</h3>
+            <h2>Projet de fin d'études en entreprise</h2>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
         </div>
-    </div>
-    <div class="cv" id="cursus">
-        <h2>Mon cursus:</h2>
-        <iframe src="pictures/CV.pdf" width="100%" height="500px"></iframe>
-        <a href="pictures/CV.pdf" class="download-button" download="CV%20Inès%20Metiba.pdf">Pour le télécharger, cliquez ici!</a>
-    </div>
-    <div class="containerv" id="contact">
-        <h2>Contactez-moi!</h2>
-        <div class="contact-info">
-            <div class="contact-info-item">
-                <i class="fas fa-envelope"></i>
-                <br><span>ines.metiba@epita.fr</span>
-            </div>
-            <div class="contact-info-item">
-                <span class="separator"></span>
-            </div>
-            <div class="contact-info-item">
-                <i class="fas fa-phone"></i>
-                <br><span>+33651681858</span>
-            </div>
-            <div class="contact-info-item">
-                <span class="separator"></span>
-            </div>
-            <div class="contact-info-item">
-                <i class="fas fa-map-marker"></i>
-                <br><span>Paris</span><br>
-                <span>Bayonne</span><br>
-                <span>Rennes</span>
-            </div>
+        <div>
+            <h3 class="categoryTitle">PLIC</h3>
+            <h2>Projet libre d'innovation et de communication.</h2>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
         </div>
+        <div>
+            <h3 class="categoryTitle">PLIC</h3>
+            <h2>Projet libre d'innovation et de communication.</h2>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
+        </div>
+    </section>
+</section>
+<h2>Autres expériences</h2>
+    <section class="xp" id="grid">
+    <div>
+    <h3 class="categoryTitle">Formations</h3>
+    <dl>
+        <dt>Diplôme d'ingénieur informatique</dt>
+        <dd>EPITA, Majeure multimédia et technologie de l'information, Kremlin-Bicêtre (94270), 2026</dd>
+        <dt>Semestre à l'étranger</dt>
+        <dd>University of Limerick,
+            suivi de divers modules (Computer forensics, Mobile Application Development, Project Management in practice, Human-Computer Interaction, etc.),
+            Limerick (Irlande), Janvier à Mai 2021</dd>
+        <dt>Baccalauréat générale scientifique, mention assez bien</dt>
+        <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2020</dd>
+    </dl>
     </div>
+    <div>
+        <h3 class="categoryTitle">Anciens Projets</h3>
+        <dl>
+            <dt>IDE, en respectant des “demandes clients” en Java, en JavaScript</dt>
+            <dd>React, 2 mois, en équipe de 4</dd>
+            <dt>Compilateur pour le langage “jouet” Tiger en C++</dt>
+            <dd>2 mois, en équipe de 4</dd>
+            <dt>Backend d’un jeu type Bomberman en Java</dt>
+            <dd>Quarkus, 1 semaine, seule</dd>
+            <dt>Shell Posix en C</dt>
+            <dd>1 mois, en équipe de 4</dd>
+            <dt>OCR pour résoudre des sudokus en C</dt>
+            <dd>5 mois, en équipe de 4</dd>
+            <dt> Jeu de survie en C#</dt>
+            <dd>Unity, 5 mois, en équipe de 4</dd>
+        </dl>
+    </div>
+        <div>
+            <h3 class="categoryTitle">Expériences professionelles</h3>
+            <dl>
+                <dt>Stage en ingénieurie logiciel</dt>
+                <dd>Développement Fullstack dotNet/Angular, Lucca, Paris (75013), Septembre 2024 à Fév 2025</dd>
+                <dt>Hôtesse de caisse</dt>
+                <dd>Carrefour Alma, Rennes (35000), Avril à Juin 2023</dd>
+                <dt>Agent de blanchisserie</dt>
+                <dd>Initial, Rennes (35000), Mars 2023</dd>
+                <dt>Agent de recensement</dt>
+                <dd>Ville de Rennes, Rennes (35000), Janvier à Mars 2023</dd>
+                <dt>Employée polyvalente</dt>
+                <dd>O'Tacos, Rennes (35000), Juin à Août 2022</dd>
+                <dt>Conseillère de vente</dt>
+                <dd>Du Pareil Au Même, Rennes (35000), Mai 2022</dd>
+                <dt>Standardiste</dt>
+                <dd>Pizza Planet, Château-Gontier-sur-Mayenne (53200), Avril à Septembre 2018</dd>
+            </dl>
+        </div>
+        <div>
+            <h3 class="categoryTitle">Expériences associatives</h3>
+            <dl>
+                <dt>Chargée de communication</dt>
+                <dd>BDE Epita, Rennes (35000), 2020-2023</dd>
+                <dt>Bénèvole en Festival</dt>
+                <dd>Blues in Haut-Anjou, Château-Gontier-sur-Mayenne (53200), 2012-2022</dd>
+                <dt>Vice-présidente d’ULESA</dt>
+                <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2019-2020</dd>
+                <dt>Membre d’ULESA</dt>
+                <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2018-2019</dd>
+                <dt>Déléguée CAVL</dt>
+                <dd>Académie de Nantes, Nantes (44000), 2016-2018</dd>
+                <dt>Présidente (à l’initiative) de la Maison des lycéens</dt>
+                <dd>Lycée Victor Hugo, Château-Gontier-sur-Mayenne (53200), 2017-2018</dd>
+            </dl>
+        </div>
+</section>
+<script src="index.js" defer></script>
 </body>
 </html>
