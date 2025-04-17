@@ -1,0 +1,115 @@
+<section class="xp">
+    <h2>Projets récents</h2>
+    <h3>L'équipe</h3>
+    <p class="description">Cette dernière année à été chargée en projet en lien avec mon orientation future,
+        nous étions pour la majeure partie d'entre eux, en équipe de 4.</p>
+    <p class="description">Cette équipe la voici, dans l'ordre, Sam, Inès, Nicolas et Cléry.</p>
+    <img src="./assets/le%20groupe.jpg" alt="Photo du groupe"/>
+    <section class="xp" id="projectgrid">
+        <div id="jekyllProject">
+            <h2 class="categoryTitle">Fil Rouge</h2>
+            <h3>Jeux vidéo 2D</h3>
+            <p>
+                Développement d'un platformer sur le thème de Dr.Jekyll et Mr.Hyde en C# avec Unity.
+            </p>
+        </div>
+        <div>
+            <h2 class="categoryTitle">PLIC</h2>
+            <h3>Projet libre d'innovation et de communication</h3>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
+        </div>
+        <div>
+            <h2 class="categoryTitle">PFEE</h2>
+            <h3>Projet de fin d'études en entreprise</h3>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
+        </div>
+        <div>
+            <h2 class="categoryTitle">PLIC</h2>
+            <h3>Projet libre d'innovation et de communication.</h3>
+            <p>
+                Développement d'une application mobile multi-platformes en React Native (Expo) et Java (SpringBoot).
+            </p>
+        </div>
+    </section>
+</section>
+<h2>Autres expériences</h2>
+<section class="xp" id="grid">
+    <div>
+        <h3 class="categoryTitle">Formations</h3>
+        <dl>
+            <dt>Diplôme d'ingénieur informatique</dt>
+            <dd>EPITA, Majeure multimédia et technologie de l'information, Kremlin-Bicêtre (94270), 2026</dd>
+            <dt>Semestre à l'étranger</dt>
+            <dd>University of Limerick,
+                suivi de divers modules (Computer forensics, Mobile Application Development, Project Management in practice, Human-Computer Interaction, etc.),
+                Limerick (Irlande), Janvier à Mai 2021</dd>
+            <dt>Baccalauréat générale scientifique, mention assez bien</dt>
+            <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2020</dd>
+        </dl>
+    </div>
+    <div>
+        <h3 class="categoryTitle">Anciens Projets</h3>
+        <dl>
+            <dt>IDE, en respectant des “demandes clients” en Java, en JavaScript</dt>
+            <dd>React, 2 mois, en équipe de 4</dd>
+            <dt>Compilateur pour le langage “jouet” Tiger en C++</dt>
+            <dd>2 mois, en équipe de 4</dd>
+            <dt>Backend d’un jeu type Bomberman en Java</dt>
+            <dd>Quarkus, 1 semaine, seule</dd>
+            <dt>Shell Posix en C</dt>
+            <dd>1 mois, en équipe de 4</dd>
+            <dt>OCR pour résoudre des sudokus en C</dt>
+            <dd>5 mois, en équipe de 4</dd>
+            <dt> Jeu de survie en C#</dt>
+            <dd>Unity, 5 mois, en équipe de 4</dd>
+        </dl>
+    </div>
+    <div>
+        <h3 class="categoryTitle">Expériences professionelles</h3>
+        <dl>
+            <dt>Stage en ingénieurie logiciel</dt>
+            <dd>Développement Fullstack dotNet/Angular, Lucca, Paris (75013), Septembre 2024 à Fév 2025</dd>
+            <dt>Hôtesse de caisse</dt>
+            <dd>Carrefour Alma, Rennes (35000), Avril à Juin 2023</dd>
+            <dt>Agent de blanchisserie</dt>
+            <dd>Initial, Rennes (35000), Mars 2023</dd>
+            <dt>Agent de recensement</dt>
+            <dd>Ville de Rennes, Rennes (35000), Janvier à Mars 2023</dd>
+            <dt>Employée polyvalente</dt>
+            <dd>O'Tacos, Rennes (35000), Juin à Août 2022</dd>
+            <dt>Conseillère de vente</dt>
+            <dd>Du Pareil Au Même, Rennes (35000), Mai 2022</dd>
+            <dt>Standardiste</dt>
+            <dd>Pizza Planet, Château-Gontier-sur-Mayenne (53200), Avril à Septembre 2018</dd>
+        </dl>
+    </div>
+    <div>
+        <h3 class="categoryTitle">Expériences associatives</h3>
+        <dl>
+            <dt>Chargée de communication</dt>
+            <dd>BDE Epita, Rennes (35000), 2020-2023</dd>
+            <dt>Bénèvole en Festival</dt>
+            <dd>Blues in Haut-Anjou, Château-Gontier-sur-Mayenne (53200), 2012-2022</dd>
+            <dt>Vice-présidente d’ULESA</dt>
+            <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2019-2020</dd>
+            <dt>Membre d’ULESA</dt>
+            <dd>Lycée Saint-Michel, Château-Gontier-sur-Mayenne (53200), 2018-2019</dd>
+            <dt>Déléguée CAVL</dt>
+            <dd>Académie de Nantes, Nantes (44000), 2016-2018</dd>
+            <dt>Présidente (à l’initiative) de la Maison des lycéens</dt>
+            <dd>Lycée Victor Hugo, Château-Gontier-sur-Mayenne (53200), 2017-2018</dd>
+        </dl>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script language="Javascript">
+    $(document).ready(function() {
+        $("#jekyllProject").click(function() {
+            $("#content").load("pages/projects/jekyllGame.html");
+        });
+    });
+</script>
