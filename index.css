@@ -63,6 +63,12 @@ body{
     color: #005b98;
 }
 
+
+.light-mode img#home{
+    background-color: #1c1b2f;
+    padding: 0.2rem;
+}
+
 .light-mode .petal
 {
     background-color: rgb(39, 38, 57, 0.8);
@@ -161,7 +167,7 @@ input:checked + .slider:before {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 40px;
+    width: 3rem;
     height: auto;
     z-index: 10;
 }
