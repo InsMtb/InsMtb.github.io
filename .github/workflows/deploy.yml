@@ -32,6 +32,12 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Patch deprecated upload-artifact
+        run: |
+          gh extension install actions/upload-artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload Vite build
         uses: actions/upload-pages-artifact@v2
         with:
