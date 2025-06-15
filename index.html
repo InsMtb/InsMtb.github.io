@@ -1,68 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="">
+  <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>CV Inès Metiba</title>
-</head>
-<body>
-<header>
-    <img src="assets/House%20Icon.svg" alt="Accueil" class="top-right-icon" id="home">
-    <div class="inline">
-        <div id="mode-text" class="mode-text">🌙</div>
-        <label class="switch">
-        <input type="checkbox">
-        <span id="mode-toggle" class="slider round"></span>
-        </label>
-    </div>
-    <div class="wrap">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-
-        <div class="center"></div>
-    </div>
-    <h1>Inès Metiba</h1>
-    <h2>Étudiante en 4ème année à l'EPITA</h2>
-    <p class="description">
-        Étudiante en dernière année à l'EPITA,
-        je recherche un stage de fin d’études de 6 mois à partir de février 2026
-        en développement fullstack.
-    </p>
-    <p class="description">
-        Passionnée par la création d'interfaces intuitives et performantes,
-        j’ai une forte appétence pour le front-end tout en maîtrisant les enjeux du back-end.
-        Curieuse et rigoureuse, je suis motivée à intégrer une équipe dynamique
-        pour concevoir des applications web et mobiles modernes,
-        en mettant l'accent sur l’expérience utilisateur et l’optimisation des performances.
-    </p>
-</header>
-<nav>
-    <ul class="no-bullets">
-        <li><a href="mailto:inesmetiba53@gmail.com">Contacter par mail</a></li>
-        <li><a href="tel:+33651681858">Contacter par téléphone</a></li>
-        <li><a href="https://www.linkedin.com/in/in%C3%A8s-metiba-404a88196/">Linkedin</a></li>
-        <li><a href="https://github.com/InsMtb">Github</a></li>
-    </ul>
-</nav>
-<div id="content"></div>
-<script src="index.js" defer></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script language="Javascript">
-    $(document).ready(function() {
-        $("#content").load("pages/home.html");
-    });
-    $(document).ready(function() {
-        $("#home").click(function() {
-            $("#content").load("pages/home.html");
-        });
-    });
-</script>
-</body>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
